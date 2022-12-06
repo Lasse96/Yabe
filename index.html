@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="./js/register.js" defer></script>
+    <title>Discovering</title>
+</head>
+
+<body>
+    <div class="container" >
+    <div class="row">
+       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+           <div class="container-lg">
+             <a class="navbar-brand" href="index.html">Discovering</a>
+             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+             </button>
+             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                 <li class="nav-item">
+                   <a class="nav-link" href="login.html">Login</a>
+                 </li>
+               </ul>
+             </div>
+           </div>
+         </nav>
+
+         <div  class="bg-danger text-center" id="usernameEr"></div>
+          <div  class="bg-danger text-center" id="emailEr"></div>
+         <div  class="bg-danger text-center" id="passwordEr"></div>
+         <div class="container mt-5">
+           <div class="row d-flex justify-content-center">
+               <div class="col-md-6">
+                   <div class="card px-5 py-5" id="form1">
+                       <form id="regForm" action="/home.html">
+                           <div class="form-text mb-4 fs-6"><input placeholder="Username" class="w-100 form-control" autocomplete="off" id="username" type="username" required>
+                           </div>
+                           <div class="form-text mb-4 fs-6"><input placeholder="Email" class="w-100 form-control" autocomplete="off" id="email" type="email" required>
+                           </div>
+                           <div class="form-text mb-4 fs-6"><input placeholder="Password" class="w-100 form-control" autocomplete="off" id="password" type="password" required>
+                           <div class="mb-3 mt-3"></div><input type="submit" value="Sign up" id="signUp" class="btn btn-dark w-100"></div>
+                           </form>
+                           <p class="text-center m-4">Or you can <a href="./login.html" class="text-primary">Log in</a></p>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   
+   
+    </div>
+   
+    </div>
+       
+   </body>
+   </html>
