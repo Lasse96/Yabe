@@ -45,10 +45,13 @@ let listPosts = (posts) => {
                 <div class="card p-4 mt-4 d-flex position-relative>
                 <img src="#" class="" alt="">
                 <a href="./post.html?id=${post.id}">
+                <p class="mt-4">${post.name}</p>
+                <p class="mt-4">${post.avatar}</p>
                 <p class="mt-4">${post.description}</p>
                 <img src="${post.media}" class="" alt="" style="max-width: 100%;">
                 <p class="mt-4">${post.created}</p>
                 <p class="mt-4">${post.endsAt}</p>
+                <p class="mt-4">${post._seller}</p>
                 <p class="mt-4">Bids: ${post._count.bids}</p>
                 ${username === post.name ? dropdowns : ""}
                 

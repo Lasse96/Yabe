@@ -4,7 +4,7 @@ const id = searchParams.get("id");
 const output = document.querySelector("#output");
 
 const API_BASE_URL = "https://nf-api.onrender.com";
-const url = `${API_BASE_URL}/api/v1/social/posts/${id}?_author=true`;
+const url = `${API_BASE_URL}/api/v1/auction/listings/${id}`;
 
 async function fetchPosts (url) {
     try {
