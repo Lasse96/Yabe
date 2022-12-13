@@ -64,6 +64,7 @@ async function login(url, userInfo) {
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("username", json.name)
         localStorage.setItem("credits", json.credits)
+        localStorage.setItem("avatar", json.avatar)
         if (response.ok == true) { 
             window.location.href = "./home.html"; 
         }
