@@ -10,6 +10,7 @@ const form = document.querySelector("#regForm");
 const usernameIn = document.querySelector("#username");
 const passwordIn = document.querySelector("#password");
 const emailIn = document.querySelector("#email");
+const avatarIn = document.querySelector("#avatar")
 
 const signbutton = document.querySelector("#signUp");
 
@@ -22,10 +23,12 @@ let validation = (e) => {
     const email = emailIn.value.trim();
     const name = usernameIn.value.trim().toLowerCase();
     const password = passwordIn.value.trim();
+    const avatar = avatarIn.value.trim();
     const userReg = {
         name,
         email,
         password,
+        avatar,
     }
 
     let emailValid = false;
