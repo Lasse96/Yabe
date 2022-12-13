@@ -40,7 +40,7 @@ function listPosts(posts) {
   const username = localStorage.getItem("username");
   let credits = localStorage.getItem("credits");
   let avatar = localStorage.getItem("avatar");
-debugger;
+  debugger;
   let newPost = "";
   for (let post of posts) {
     const dropdowns = `
@@ -82,9 +82,9 @@ debugger;
                 <img src="${
                   post.media
                 }" class="card-img-top" alt=""style="max-height: 200px;">
-                <a href="./post.html?id=${post.id}" class="mt-4 text-dark card-title" >Title: ${
-      post.title
-    }</a>
+                <a href="./post.html?id=${
+                  post.id
+                }" class="mt-4 text-dark card-title" >Title: ${post.title}</a>
                 ${descriptionHtml}
                 
                 <p class="mt-4 text-dark">The listing ends at ${localDate}</p>
@@ -114,9 +114,7 @@ debugger;
     <div>
     <div>
       <div class="d-flex">
-        <img src="${
-          avatar
-        }"  alt="" style="max-width: 200px;">
+        <img src="${avatar}"  alt="" style="max-width: 200px;">
         <input type="text" name="avatarImg" class="rounded-2 p-3 mb-3 form-control border" placeholder="Put in link for new avatar" id="avatarImg">
         <button id="updateAvatar" class="btn btn-dark mb-4">Change Avatar</button>
       </div>
@@ -139,9 +137,9 @@ debugger;
     </div>`;
   output.innerHTML = newPost;
   const buttonPost = document.querySelector("#postbut");
-  const updateAvatar = document.querySelector("#updateAvatar")
+  const updateAvatar = document.querySelector("#updateAvatar");
 
-  updateAvatar.addEventListener("click", changeAvatar)
+  updateAvatar.addEventListener("click", changeAvatar);
 
   buttonPost.addEventListener("click", () => {
     submit(listingsUrl);
@@ -164,15 +162,14 @@ debugger;
 //Change avatar
 
 async function changeAvatar() {
-  
   try {
-    const avatarImg = document.querySelector("#avatarImg")
+    const avatarImg = document.querySelector("#avatarImg");
     const token = localStorage.getItem("accessToken");
     const username = localStorage.getItem("username");
-    const avImg = avatarImg.value
+    const avImg = avatarImg.value;
     const img = {
       avatar: avImg,
-    }
+    };
     const putAvatar = {
       method: "PUT",
       headers: {
@@ -183,9 +180,9 @@ async function changeAvatar() {
     };
     let resultAvatar = await fetch(profileUrl + username + "/media", putAvatar);
 
-    resultAvatar= await resultAvatar.json();
-    localStorage.setItem("avatar",resultAvatar.avatar)
-    
+    resultAvatar = await resultAvatar.json();
+    localStorage.setItem("avatar", resultAvatar.avatar);
+
     document.location.reload();
   } catch (error) {
     console.log(error);
@@ -198,7 +195,7 @@ async function bidding(id) {
   const bidAmountInput = document.querySelector(`#bid-${id}`);
   const amount = {
     amount: parseInt(bidAmountInput.value),
-  }; 
+  };
 
   try {
     const token = localStorage.getItem("accessToken");
@@ -218,8 +215,7 @@ async function bidding(id) {
   }
 }
 
-async function updateUserInfo() { 
-
+async function updateUserInfo() {
   try {
     const token = localStorage.getItem("accessToken");
     const username = localStorage.getItem("username");
@@ -228,11 +224,11 @@ async function updateUserInfo() {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
-      }
+      },
     };
     let resultCredits = await fetch(profileUrl + username, getCredits);
-    resultCredits= await resultCredits.json();
-    localStorage.setItem("credits",resultCredits.credits)
+    resultCredits = await resultCredits.json();
+    localStorage.setItem("credits", resultCredits.credits);
     document.location.reload();
   } catch (error) {
     console.log(error);
