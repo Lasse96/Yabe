@@ -66,25 +66,24 @@ function listPosts(posts) {
       lastBidHtml = `<p class="mt-4 text-dark h7 b">No bids</p>`;
     }
 
-    let descriptionHtml = "";
-    if (post.description != null && post.description != "") {
-      let desc = post.description;
-      descriptionHtml = `<p class="mt-4 text-dark h6">Description: ${desc}</p>`;
+    let imgHtml = "";
+    if (post.media != null && post.media != "") {
+      let media = post.media;
+      imgHtml = `<img onerror="this.onerror=null; this.src='./image/noimg.jpg';" src="${media}" class="card-img-top imageMain" alt=""style="max-height: 200px; min-height:200px;">`;
     } else {
-      descriptionHtml = `<p class="mt-4 text-dark h6">No description</p>`;
+      imgHtml = `<img src="./image/noimg.jpg" class="card-img-top" alt=""style="max-height: 200px;">`;
     }
 
     newPost += `
             <div class="col-md-4">
-                <div class="card" style="background-color:whitesmoke; min-height: 500px;">
-                  <div class="card-body">
-                <img src="${
-                  post.media
-                }" class="card-img-top" alt=""style="max-height: 200px;">
+                <div class="shadow-lg p-4 mb-5 bg-body rounded" style="background-color:whitesmoke; min-height: 544px;">
+                  <div>
+                ${imgHtml}
                 <a href="./post.html?id=${
                   post.id
-                }" class="mt-4 text-dark card-title" >Title: ${post.title}</a>
-                ${descriptionHtml}
+                }" class="mt-4 text-dark text-wrap" style="word-wrap: break-word;" >Title: ${
+      post.title
+    }</a>
                 
                 <p class="mt-4 text-dark">The listing ends at: ${localDate}</p>
                 
@@ -109,7 +108,8 @@ function listPosts(posts) {
   const msg = document.querySelector("#msg");
   msg.innerHTML = `
     <div style="display: ${isUserLoggedIn ? "block" : "none"};">
-    <div  class="d-flex">
+    <div class="row">
+    <div  class="r-flex shadow-lg p-4 mb-5 bg-body rounded col">
     <div>
     <img src="${avatar}"  alt="" style="max-width: 200px; object-fit: cover;" class="rounded-circle mt-5 img-fluid" data-bs-toggle="modal" data-bs-target="#avatarModal">
     <div class="modal" id="avatarModal" style="background-color:#212529;">
@@ -135,18 +135,19 @@ function listPosts(posts) {
   </div>
       <div>
         <div class="d-flex">
-          <img src="./image/username.png"  alt="" style="max-width: 175px;">
-          <h2 class="text-dark font-monospace pt-5">${username}</h2>
+          <img src="./image/username.png"  alt="" style="max-height: 35px;">
+          <h4 class="text-secondary font-monospace">${username}</h4>
         </div>
         <div class="d-flex">
-          <img src="./image/credits.png"  alt="" style="max-width: 175px;">
-          <h3 class="pt-5">${credits}</h3>
+          <img src="./image/credits.png"  alt="" style="max-height: 30px;">
+          <h4>${credits}</h4>
         </div>
       </div>
       <div class="justify-content-end">
-      <img src="./image/sell.png" class="float-right" alt="" style="max-width: 350px;" data-bs-toggle="modal" data-bs-target="#listingModal">
+      
       </div>
       </div>
+      <img src="./image/sell.png" class="col shadow-lg p-4 mb-5 bg-body rounded" alt="" style="max-width: 350px; text-align: right;" data-bs-toggle="modal" data-bs-target="#listingModal"></div>
     <div class="d-flex">
     
     <div class="modal" id="listingModal" style="background-color:#212529;">
@@ -172,6 +173,7 @@ function listPosts(posts) {
       </div>
     </div>`;
   output.innerHTML = newPost;
+
   const buttonPost = document.querySelector("#postbut");
   const updateAvatar = document.querySelector("#updateAvatar");
 

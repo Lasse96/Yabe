@@ -30,8 +30,17 @@ fetchPosts(url);
 let listPosts = (post) => {
   post.bids.forEach((e) => {
     bidOutput.innerHTML += `
-        <p>Amount: ${e.amount}</p>
-        <p>Bidder name: ${e.bidderName}</p>`;
+    <div class="border-top text-dark shadow p-4 mb-5 bg-body rounded">
+      <div class="d-flex">
+        <p class="fw-bold">Amount: </p>
+        <p class="text-muted"> ${e.amount}</p>
+      </div>
+      <div class="d-flex">
+        <p class="fw-bold">Bidder name: </p>
+        <p class="text-muted"> ${e.bidderName}</p>
+      </div>
+    </div>
+        `;
   });
   let dato = new Date(post.updated);
   let localDate = dato.toLocaleString("default", {
@@ -44,15 +53,32 @@ let listPosts = (post) => {
   if (post.media == null) {
     post.media = "";
   }
+
+  let descriptionHtml = "";
+  if (post.description != null && post.description != "") {
+    let desc = post.description;
+    descriptionHtml = `<p class="mt-4 text-dark h6">Description: ${desc}</p>`;
+  } else {
+    descriptionHtml = `<p class="mt-4 text-dark h6">No description</p>`;
+  }
+
   output.innerHTML = `
-    <div class="card p-3">
+    <div class=" p-3 text-dark">
     <p style="text-align: right;">${localDate}</p>
-    <img src="${post.seller.avatar}" style="max-width: 100px;">
-    <p>Username: ${post.seller.name}</p>   
+    <div class="d-flex">
+    <div class="shadow-lg p-4 mb-5 bg-body rounded">
+    <img src="${post.media}" style="max-width: 400px;">
     <h2>${post.title}</h2>
-    <p>Bids: ${post._count.bids}</p>
-    <img src="${post.media}">
-    <p>Description: ${post.description}</p>
+    ${descriptionHtml}
+    </div>
+    <div class="ps-5 badge">
+    <img src="${post.seller.avatar}" style="max-width: 100px;">
+    <p class="text-secondary fs-6">Username: ${post.seller.name}</p>   
+    <p class="text-muted fs-5">Bids: ${post._count.bids}</p>
+    </div>
+    </div>
+    
+    
     </div>
  `;
 };
