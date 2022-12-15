@@ -40,7 +40,6 @@ function listPosts(posts) {
   const username = localStorage.getItem("username");
   let credits = localStorage.getItem("credits");
   let avatar = localStorage.getItem("avatar");
-  debugger;
   let newPost = "";
   for (let post of posts) {
     const dropdowns = `
@@ -77,8 +76,8 @@ function listPosts(posts) {
 
     newPost += `
             <div class="col-md-4">
-                <div class="card p-4 mt-4" style="background-color:whitesmoke;">
-                  <div>
+                <div class="card" style="background-color:whitesmoke; min-height: 500px;">
+                  <div class="card-body">
                 <img src="${
                   post.media
                 }" class="card-img-top" alt=""style="max-height: 200px;">
@@ -87,11 +86,11 @@ function listPosts(posts) {
                 }" class="mt-4 text-dark card-title" >Title: ${post.title}</a>
                 ${descriptionHtml}
                 
-                <p class="mt-4 text-dark">The listing ends at ${localDate}</p>
+                <p class="mt-4 text-dark">The listing ends at: ${localDate}</p>
                 
                     <div style="display: ${isUserLoggedIn ? "block" : "none"};">
                   </div>
-                     <div >
+                     <div class="card-footer">
                      ${lastBidHtml}
                          <input type="number" class="rounded-2 p-3 mb-3 form-control border" name="bids" placeholder="Amount" id="bid-${
                            post.id
@@ -110,22 +109,54 @@ function listPosts(posts) {
   const msg = document.querySelector("#msg");
   msg.innerHTML = `
     <div style="display: ${isUserLoggedIn ? "block" : "none"};">
+    <div  class="d-flex">
+    <div>
+    <img src="${avatar}"  alt="" style="max-width: 200px; object-fit: cover;" class="rounded-circle mt-5 img-fluid" data-bs-toggle="modal" data-bs-target="#avatarModal">
+    <div class="modal" id="avatarModal" style="background-color:#212529;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+      <div class="col-sm-6">
+      <input type="text" name="avatarImg" class="rounded-2 mb-4 form-control border" placeholder="Put in link for new avatar" id="avatarImg">
+      </div>
+      <button id="updateAvatar" class="btn btn-dark mb-4">Change Avatar</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+      </div>
 
-    <div>
-    <div>
-      <div class="d-flex">
-        <img src="${avatar}"  alt="" style="max-width: 200px;">
-        <input type="text" name="avatarImg" class="rounded-2 p-3 mb-3 form-control border" placeholder="Put in link for new avatar" id="avatarImg">
-        <button id="updateAvatar" class="btn btn-dark mb-4">Change Avatar</button>
-      </div>
-      <div>
-        <h2 class="text-dark font-monospace">Hello ${username}!</h2>
-        <h3 class="text-dark font-monospace">These are your credits: ${credits}</h3>
-      </div>
-    <div>
-    <h4 class="text-dark font-monospace">What do you wish to sell?</h4>
+    </div>
+  </div>
+</div>
     
-    <form class="flex-column d-flex">
+  </div>
+      <div>
+        <div class="d-flex">
+          <img src="./image/username.png"  alt="" style="max-width: 175px;">
+          <h2 class="text-dark font-monospace pt-5">${username}</h2>
+        </div>
+        <div class="d-flex">
+          <img src="./image/credits.png"  alt="" style="max-width: 175px;">
+          <h3 class="pt-5">${credits}</h3>
+        </div>
+      </div>
+      <div class="justify-content-end">
+      <img src="./image/sell.png" class="float-right" alt="" style="max-width: 350px;" data-bs-toggle="modal" data-bs-target="#listingModal">
+      </div>
+      </div>
+    <div class="d-flex">
+    
+    <div class="modal" id="listingModal" style="background-color:#212529;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+      <form class="flex-column d-flex card">
         <input type="text" class="rounded-2 p-3 mb-3 form-control border" name="title" placeholder="Title" id="title">
         <textarea name="postInput" class="rounded-2 p-3 mb-3 form-control border" placeholder="Description" id="text"></textarea>
         <input type="text" name="media" class="rounded-2 p-3 mb-3 form-control border" placeholder="To get an image, add a link." id="image">
@@ -133,7 +164,12 @@ function listPosts(posts) {
     </form>
     </div>
         <div class="d-grid gap-4 mx-auto col-6">
-        <button id="postbut" class="btn btn-dark mb-4">Create listing</button></div>
+        <button id="postbut" class="btn btn-dark mb-4">Create listing</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+      </div>
     </div>`;
   output.innerHTML = newPost;
   const buttonPost = document.querySelector("#postbut");
