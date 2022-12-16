@@ -135,11 +135,11 @@ function listPosts(posts) {
   </div>
       <div>
         <div class="d-flex">
-          <img src="./image/username.png"  alt="" style="max-height: 35px;">
+          <img src="./image/username.png" class="ms-2" alt="" style="max-height: 35px;">
           <h4 class="text-secondary font-monospace">${username}</h4>
         </div>
         <div class="d-flex">
-          <img src="./image/credits.png"  alt="" style="max-height: 30px;">
+          <img src="./image/credits.png" class="ms-3"  alt="" style="max-height: 30px;">
           <h4>${credits}</h4>
         </div>
       </div>
