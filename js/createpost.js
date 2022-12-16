@@ -75,17 +75,17 @@ function listPosts(posts) {
     }
 
     newPost += `
-            <div class="col-md-4">
+            <div class="col-md-4 position-relative">
                 <div class="shadow-lg p-4 mb-5 bg-body rounded" style="background-color:whitesmoke; min-height: 544px;">
                   <div>
-                ${imgHtml}
+                  <a href="./post.html?id=${post.id}">${imgHtml}</a>
                 <a href="./post.html?id=${
                   post.id
-                }" class="mt-4 text-dark text-wrap" style="word-wrap: break-word;" >Title: ${
+                }" class="mt-4 text-dark text-wrap fw-bold text-break text-decoration-none" style="word-wrap: break-word;" >${
       post.title
     }</a>
                 
-                <p class="mt-4 text-dark">The listing ends at: ${localDate}</p>
+                <p class="mt-4 text-muted">The listing ends at: ${localDate}</p>
                 
                     <div style="display: ${isUserLoggedIn ? "block" : "none"};">
                   </div>
