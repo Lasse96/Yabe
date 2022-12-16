@@ -10,7 +10,7 @@
 
 - Kanban board [Trello](https://trello.com/invite/b/Mc56s70I/ATTI10f3093dfbf5422bd9c7c4f53910256126E3CE7C/yabe)
 
-- Prototype [www.figma.com](www.figma.com)
+- This is my [Prototype](https://www.figma.com/file/bMxLtKd3bh8v3p5UkHVdqd/Prototype?node-id=0%3A1&t=ZS2rYRUS5EzVGXjx-1)
 
 - This is my [Style Guide](https://www.figma.com/file/fheThIikDqMw0cmPM3MMlu/Style-Guide?node-id=0%3A1&t=qang69xKuYKuOtGK-1)
 
