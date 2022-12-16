@@ -14,7 +14,8 @@
 
 - This is my [Style Guide](https://www.figma.com/file/fheThIikDqMw0cmPM3MMlu/Style-Guide?node-id=0%3A1&t=qang69xKuYKuOtGK-1)
 
-- Wireframe **wireframe**
+- Wireframe 
+- ![IMG_4894 HEIC 2022-12-16 15-53-24](https://user-images.githubusercontent.com/91594348/208124917-8cad957a-5b88-4731-87aa-b047bea38316.png)
 
 - How to setup 
 
