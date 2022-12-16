@@ -1,7 +1,7 @@
 <h1 align="center">Yabe Semester Lasse</h1>
 <h3 align="center">Oppgave for semesteret</h3>
 
-- Here is the link for [Netlify](www.google.no)
+- Here is the link for [Netlify](https://timely-marigold-d56140.netlify.app)
 
 - Gant chart ![GANT YABE](https://user-images.githubusercontent.com/91594348/207639280-18e1aeb6-ccbe-4240-88b4-3e90150b9d5f.png)
 
