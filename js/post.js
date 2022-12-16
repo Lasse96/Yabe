@@ -65,20 +65,18 @@ let listPosts = (post) => {
   output.innerHTML = `
     <div class=" p-3 text-dark">
     <p style="text-align: right;">${localDate}</p>
-    <div class="d-flex">
-    <div class="shadow-lg p-4 mb-5 bg-body rounded">
-    <img src="${post.media}" style="max-width: 400px;">
-    <h2>${post.title}</h2>
-    ${descriptionHtml}
-    </div>
-    <div class="ps-5 badge">
-    <img src="${post.seller.avatar}" style="max-width: 100px;">
-    <p class="text-secondary fs-6">Username: ${post.seller.name}</p>   
-    <p class="text-muted fs-5">Bids: ${post._count.bids}</p>
-    </div>
-    </div>
-    
-    
+      <div class="d-flex flex-wrap">
+        <div class="shadow-lg p-4 mb-5 bg-body rounded">
+          <img src="${post.media}" style="max-width: 400px;">
+          <h2>${post.title}</h2>
+          ${descriptionHtml}
+        </div>
+        <div class="ps-5 badge">
+          <img src="${post.seller.avatar}" style="max-width: 100px;">
+          <p class="text-secondary fs-6">Username: ${post.seller.name}</p>   
+          <p class="text-muted fs-5">Bids: ${post._count.bids}</p>
+        </div>
+      </div>
     </div>
  `;
 };

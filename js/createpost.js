@@ -106,12 +106,19 @@ function listPosts(posts) {
 
   //Dropdown
   const msg = document.querySelector("#msg");
+  let avatarHtml = "";
+  if (avatar != null && avatar != "") {
+    let ava = avatar;
+    avatarHtml = `<img onerror="this.onerror=null; this.src='./image/noimg.jpg';" src="${ava}" style="max-width: 200px; object-fit: cover;" class="rounded-circle mt-5 img-fluid" data-bs-toggle="modal" data-bs-target="#avatarModal">`;
+  } else {
+    avatarHtml = `<img src="./image/noimg.jpg" style="max-width: 200px; object-fit: cover;" class="rounded-circle mt-5 img-fluid" data-bs-toggle="modal" data-bs-target="#avatarModal">`;
+  }
   msg.innerHTML = `
     <div style="display: ${isUserLoggedIn ? "block" : "none"};">
     <div class="row">
     <div  class="r-flex shadow-lg p-4 mb-5 bg-body rounded col">
     <div>
-    <img src="${avatar}"  alt="" style="max-width: 200px; object-fit: cover;" class="rounded-circle mt-5 img-fluid" data-bs-toggle="modal" data-bs-target="#avatarModal">
+    ${avatarHtml}
     <div class="modal" id="avatarModal" style="background-color:#212529;">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -142,9 +149,6 @@ function listPosts(posts) {
           <img src="./image/credits.png" class="ms-3"  alt="" style="max-height: 30px;">
           <h4>${credits}</h4>
         </div>
-      </div>
-      <div class="justify-content-end">
-      
       </div>
       </div>
       <img src="./image/sell.png" class="col shadow-lg p-4 mb-5 bg-body rounded" alt="" style="max-width: 350px; text-align: right;" data-bs-toggle="modal" data-bs-target="#listingModal"></div>
