@@ -12,7 +12,7 @@
 
 - Prototype [www.figma.com](www.figma.com)
 
-- Style Guide **img**
+- This is my [Style Guide](https://www.figma.com/file/fheThIikDqMw0cmPM3MMlu/Style-Guide?node-id=0%3A1&t=qang69xKuYKuOtGK-1)
 
 - Wireframe **wireframe**
 
